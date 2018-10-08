@@ -11,7 +11,7 @@ let cache = apicache.middleware
 router.post('/rest/api/run', cache('5 minutes'), (req, res, next) => {
     let options = {
         rejectUnauthorized: false,
-        url: 'https://constellation.soprasteria.com/jira2/rest/api/latest/search?jql=project=' + req.body.applicationId + ' AND issuetype=incident AND status in (New, Rejected, Doing, Validated) and Reference is not null&fields=components,status,customfield_10014,status,summary,customfield_10582, customfield_10555, customfield_10545, aggregatetimespent, application, duedate, assignee\n' +
+        url: 'https://constellation.soprasteria.com/jira2/rest/api/latest/search?jql=project=' + req.body.applicationId + ' AND issuetype=incident AND status in (New, Rejected, Doing, Validated) and Reference is not null&fields=components,status,customfield_10014,status,summary,customfield_10582, customfield_10555, customfield_10545, aggregatetimespent, customfield_10010, duedate, assignee\n' +
             ' &maxResults=-1',
         headers: {
             'Content-Type': 'application/json',
