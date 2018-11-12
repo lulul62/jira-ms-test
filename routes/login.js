@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
     var token = btoa(req.body.username + ':' + req.body.password);
     let options = {
         rejectUnauthorized: false,
-        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username,
+        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username + '&expand=groups',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Basic ' + token
