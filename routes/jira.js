@@ -64,7 +64,7 @@ router.post('/rest/api/deleteEvents',  (req, res, next) => {
 router.post('/rest/api/getCurrentUser', (req, res, next) => {
     let options = {
         rejectUnauthorized: false,
-        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username,
+        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username + '&expand=groups',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': req.body.token
