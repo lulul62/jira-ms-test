@@ -64,7 +64,7 @@ router.post('/rest/api/deleteEvents',  (req, res, next) => {
 router.post('/rest/api/getCurrentUser', (req, res, next) => {
     let options = {
         rejectUnauthorized: false,
-        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username + '&expand=groups',
+        url: 'https://constellation.soprasteria.com/jira2/rest/api/2/user?username=' + req.body.username,
         headers: {
             'Content-Type': 'application/json',
             'Authorization': req.body.token
@@ -103,7 +103,7 @@ router.post('/rest/api/worklog', cache('5 minutes'), (req, res, next) => {
 router.post('/rest/api/r7', cache('5 minutes'), (req, res, next) => {
     let options = {
         rejectUnauthorized: false,
-        url: 'https://constellation.soprasteria.com/jira2/rest/api/latest/search?jql=project=' + req.body.applicationId + ' AND issuetype = Bug&fields=customfield_10551, status, aggregatetimespent, aggregatetimeoriginalestimate, aggregateprogress, aggregatetimeestimate, summary, customfield_10608, customfield_10578, customfield_10582, customfield_10545, customfield_10509, customfield_10579, components, duedate, assignee &maxResults=-1',
+        url: 'https://constellation.soprasteria.com/jira2/rest/api/latest/search?jql=project=' + req.body.applicationId + ' AND issuetype = Bug&fields=customfield_10551, status, aggregatetimespent, aggregatetimeoriginalestimate, aggregateprogress, aggregatetimeestimate, summary, customfield_10608, customfield_10578, customfield_10582, customfield_10545, customfield_10509, customfield_10579, components, customfield_10538, duedate, assignee &maxResults=-1',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': req.body.token
